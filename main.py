@@ -1,9 +1,9 @@
-import requests
-import schedule
-import time
+from requests import post
+from schedule import every, run_pending
+from time import sleep
 
-TOKEN = ''
-CHANNEL_ID = ''
+TOKEN = 'YOUR_DISCORD_TOKEN'
+CHANNEL_ID = 'YOUR_CHANNEL_ID'
 TEXT_FILE_PATH = 'messages.txt'
 
 
@@ -31,7 +31,7 @@ def send_message():
         data = {
             'content': message
         }
-        response = requests.post(url, headers=headers, json=data)
+        response = post(url, headers=headers, json=data)
         print(f'Sent: {message}')
         print(f'Status Code: {response.status_code}')
         print(response.json())
@@ -43,9 +43,9 @@ def send_message():
 
 
 # Schedule the message to be sent every minute
-schedule.every(2).minutes.do(send_message)
+every(2).minutes.do(send_message)
 
 # Keep the script running
 while True:
-    schedule.run_pending()
-    time.sleep(2)
+    run_pending()
+    sleep(2)
