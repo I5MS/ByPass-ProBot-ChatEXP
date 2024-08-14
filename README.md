@@ -23,11 +23,10 @@ Don’t share your Discord token with anyone, as it lets them access your accoun
 
 ### 1. Install Dependencies
 
-Make sure you have `requests` and `schedule` installed. You can install them using pip:
+**Install the required dependencies** using `requirements.txt`:
 
 ```bash
-pip install requests requests
-pip install requests schedule
+pip install -r requirements.txt
 ```
 
 ### 2. Configure the Script
@@ -61,7 +60,7 @@ python main.py
 ## How It Works
 
 1. The script reads messages from `messages.txt`.
-2. It sends a message to the specified Discord channel using the bot token and channel ID.
+2. It sends a message to the specified Discord channel using the account token and channel ID.
 3. The script schedules the message sending to occur every 2 minutes.
 4. It automatically cycles through the list of messages.
 
@@ -72,4 +71,4 @@ python main.py
 ## Troubleshooting
 
 - **No Messages Found**: Ensure `messages.txt` is in the correct format and located in the same directory as the script.
-- **Authorization Errors**: Verify your bot token and channel ID are correct and that the bot has the necessary permissions to send messages in the channel.
+- **Authorization Errors**: Verify your account token and channel ID are correct and that the account has the necessary permissions to send messages in the channel.
